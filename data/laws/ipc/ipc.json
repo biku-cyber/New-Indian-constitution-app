@@ -1,0 +1,21 @@
+{
+  "groups": [
+    {
+      "id": "ch16",
+      "number": 16,
+      "title": "Chapter 16",
+      "titleEn": "Offences Affecting the Human Body",
+      "entries": [
+        {
+          "id": "ipc_s302",
+          "number": 302,
+          "title": "নৰবধৰ শাস্তি",
+          "titleEn": "Punishment for murder",
+          "keywords": ["murder", "punishment", "death penalty"],
+          "text": ["[নমুনা] যিয়ে নৰবধ কৰে, সি মৃত্যুদণ্ড বা যাৱজ্জীৱন কাৰাদণ্ডৰে দণ্ডিত হ'ব, আৰু জৰিমনাৰো যোগ্য হ'ব।"],
+          "explanation": "এইটো ধাৰা এতিয়া BNS Section 103 ৰে সলনি হৈছে। এইটো নমুনা তথ্য।"
+        }
+      ]
+    }
+  ]
+}
