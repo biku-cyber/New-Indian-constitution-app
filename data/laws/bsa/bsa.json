@@ -1,0 +1,37 @@
+{
+  "groups": [
+    {
+      "id": "ch1",
+      "number": 1,
+      "title": "Chapter 1",
+      "titleEn": "Preliminary",
+      "entries": [
+        {
+          "id": "bsa_s1",
+          "number": 1,
+          "title": "চমু নাম, প্ৰসাৰ আৰু প্ৰাৰম্ভ",
+          "titleEn": "Short title, extent and commencement",
+          "keywords": ["short title", "commencement"],
+          "text": ["[নমুনা] এই অধিনিয়মক ভাৰতীয় সাক্ষ্য অধিনিয়ম, ২০২৩ বুলি কোৱা হ'ব।"]
+        }
+      ]
+    },
+    {
+      "id": "ch2",
+      "number": 2,
+      "title": "Chapter 2",
+      "titleEn": "Relevancy of Facts",
+      "entries": [
+        {
+          "id": "bsa_s3",
+          "number": 3,
+          "title": "প্ৰাসংগিক তথ্য",
+          "titleEn": "Evidence may be given of facts in issue and relevant facts",
+          "keywords": ["relevant facts", "evidence"],
+          "text": ["[নমুনা] বিচাৰাধীন প্ৰতিটো গোচৰত, প্ৰাসংগিক তথ্যৰ সাক্ষ্য দিব পাৰি।"],
+          "explanation": "এইটো নমুনা তথ্য — প্ৰকৃত প্ৰমাণিত পাঠেৰে সলনি কৰিব লাগিব।"
+        }
+      ]
+    }
+  ]
+}
