@@ -1,0 +1,24 @@
+{
+  "entries": [
+    {
+      "id": "cs1",
+      "number": null,
+      "title": "কেশৱানন্দ ভাৰতী বনাম কেৰল ৰাজ্য (1973)",
+      "titleEn": "Kesavananda Bharati v. State of Kerala",
+      "relatedLaw": "Constitution — Basic Structure Doctrine",
+      "keywords": ["basic structure", "constitution", "amendment power"],
+      "text": ["[নমুনা সাৰাংশ] এই মামলাত উচ্চতম ন্যায়ালয়ে \"মৌলিক গাঁথনি\" (Basic Structure) নীতি প্ৰতিষ্ঠা কৰিছিল, য'ত সংসদৰ সংবিধান সংশোধনৰ ক্ষমতাৰ সীমা নিৰ্ধাৰণ কৰা হৈছিল।"],
+      "explanation": "এইটো নমুনা তথ্য — সম্পূৰ্ণ, প্ৰমাণিত বিৱৰণেৰে সলনি কৰিব লাগিব।"
+    },
+    {
+      "id": "cs2",
+      "number": null,
+      "title": "একটা নৰবধ গোচৰৰ অধ্যয়ন",
+      "titleEn": "Illustrative Murder Case Study — BNS Section 103",
+      "relatedLaw": "BNS Section 103 / IPC Section 302",
+      "keywords": ["murder", "bns 103", "ipc 302", "case study"],
+      "text": ["[নমুনা] এইটো এক উদাহৰণস্বৰূপ গোচৰ যিয়ে BNS ধাৰা ১০৩ৰ প্ৰয়োগ কেনেকৈ হয় তাক দৰ্শায়।"],
+      "explanation": "এইটো নমুনা তথ্য — প্ৰকৃত গোচৰৰ বিৱৰণেৰে সলনি কৰিব লাগিব।"
+    }
+  ]
+}
