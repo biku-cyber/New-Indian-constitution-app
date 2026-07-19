@@ -1,0 +1,15 @@
+{
+  "name": "NyaySetu · ন্যায়সেতু",
+  "short_name": "NyaySetu",
+  "description": "Offline-first Assamese legal reference app — Constitution, BNS, BNSS, BSA, IPC, CrPC",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#151312",
+  "theme_color": "#151312",
+  "lang": "as",
+  "icons": [
+    { "src": "assets/icons/app_icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
