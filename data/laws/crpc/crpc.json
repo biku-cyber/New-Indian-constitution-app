@@ -1,0 +1,21 @@
+{
+  "groups": [
+    {
+      "id": "ch33",
+      "number": 33,
+      "title": "Chapter 33",
+      "titleEn": "Provisions as to Bail and Bonds",
+      "entries": [
+        {
+          "id": "crpc_s438",
+          "number": 438,
+          "title": "আগতীয়া জামিন",
+          "titleEn": "Anticipatory bail",
+          "keywords": ["anticipatory bail", "bail"],
+          "text": ["[নমুনা] গ্ৰেপ্তাৰৰ আশংকা থকা ব্যক্তিয়ে আগতীয়া জামিনৰ বাবে আবেদন কৰিব পাৰে।"],
+          "explanation": "এইটো ধাৰা এতিয়া BNSS Section 479 ৰে সলনি হৈছে। এইটো নমুনা তথ্য।"
+        }
+      ]
+    }
+  ]
+}
