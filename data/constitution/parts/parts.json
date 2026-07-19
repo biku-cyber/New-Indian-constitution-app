@@ -1,0 +1,71 @@
+{
+  "groups": [
+    {
+      "id": "part1",
+      "number": "I",
+      "title": "Part I",
+      "titleEn": "The Union and its Territory",
+      "entries": [
+        {
+          "id": "art1",
+          "number": 1,
+          "title": "সংঘৰ নাম আৰু ৰাজ্যক্ষেত্ৰ",
+          "titleEn": "Name and territory of the Union",
+          "keywords": ["union", "territory", "india", "bharat"],
+          "text": ["[নমুনা] ভাৰত, অৰ্থাৎ ভাৰত, ৰাজ্যসমূহৰ এক সংঘ হ'ব।"]
+        }
+      ]
+    },
+    {
+      "id": "part3",
+      "number": "III",
+      "title": "Part III",
+      "titleEn": "মৌলিক অধিকাৰ",
+      "entries": [
+        {
+          "id": "art12",
+          "number": 12,
+          "title": "সংজ্ঞা",
+          "titleEn": "Definition",
+          "keywords": ["definition", "state", "article 12"],
+          "text": ["[নমুনা] এই ভাগত, প্ৰসংগত অন্যথা প্ৰয়োজন নোহোৱালৈকে, \"ৰাষ্ট্ৰ\"-ৰ অন্তৰ্ভুক্ত হয় ভাৰত চৰকাৰ, সংসদ, প্ৰতিটো ৰাজ্যৰ চৰকাৰ আৰু বিধানসভা, আৰু ভাৰতৰ ৰাজ্যক্ষেত্ৰৰ ভিতৰত বা ভাৰত চৰকাৰৰ নিয়ন্ত্ৰণাধীন সকলো স্থানীয় বা অন্য কৰ্তৃপক্ষ।"]
+        },
+        {
+          "id": "art13",
+          "number": 13,
+          "title": "মৌলিক অধিকাৰৰ সৈতে অসংগত আইনসমূহ",
+          "titleEn": "Laws inconsistent with fundamental rights",
+          "keywords": ["fundamental rights", "void law", "article 13"],
+          "text": ["[নমুনা] এই ভাগৰ প্ৰাৱধানৰ সৈতে অসংগত সকলো আইন, যিমানখিনি অসংগত, সিমানখিনিলৈকে বাতিল হ'ব।"]
+        },
+        {
+          "id": "art14",
+          "number": 14,
+          "title": "আইনৰ সমক্ষত সমতা",
+          "titleEn": "Equality before law",
+          "keywords": ["equality", "equal protection", "article 14"],
+          "text": [
+            "[নমুনা] ৰাষ্ট্ৰই ভাৰতৰ ৰাজ্যক্ষেত্ৰৰ ভিতৰত কোনো ব্যক্তিক আইনৰ সমক্ষত সমতা বা আইনৰ সমান সুৰক্ষাৰ পৰা বঞ্চিত নকৰিব।"
+          ],
+          "explanation": "এইটো নমুনা তথ্য — প্ৰকৃত প্ৰমাণিত পাঠেৰে সলনি কৰিব লাগিব।"
+        },
+        {
+          "id": "art19",
+          "number": 19,
+          "title": "কিছুমান স্বাধীনতাৰ সুৰক্ষা",
+          "titleEn": "Protection of certain rights regarding freedom of speech etc.",
+          "keywords": ["freedom of speech", "expression", "article 19"],
+          "text": ["[নমুনা] সকলো নাগৰিকৰ অধিকাৰ থাকিব— (ক) বাক আৰু অভিব্যক্তিৰ স্বাধীনতাৰ; (খ) শান্তিপূৰ্ণভাৱে আৰু অস্ত্ৰবিহীন হৈ সমবেত হোৱাৰ।"]
+        },
+        {
+          "id": "art21",
+          "number": 21,
+          "title": "জীৱন আৰু ব্যক্তিগত স্বাধীনতাৰ সুৰক্ষা",
+          "titleEn": "Protection of life and personal liberty",
+          "keywords": ["right to life", "personal liberty", "article 21"],
+          "text": ["[নমুনা] আইনত নিৰ্ধাৰিত পদ্ধতি অবিহনে কাকো তাৰ জীৱন বা ব্যক্তিগত স্বাধীনতাৰ পৰা বঞ্চিত কৰা নহ'ব।"]
+        }
+      ]
+    }
+  ]
+}
