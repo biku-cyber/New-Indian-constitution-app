@@ -1,0 +1,88 @@
+{
+  "groups": [
+    {
+      "id": "ch1",
+      "number": 1,
+      "title": "Chapter 1",
+      "titleEn": "Preliminary",
+      "entries": [
+        {
+          "id": "bns_s1",
+          "number": 1,
+          "title": "চমু নাম, প্ৰসাৰ আৰু প্ৰাৰম্ভ",
+          "titleEn": "Short title, extent and commencement",
+          "keywords": ["short title", "commencement"],
+          "text": ["[নমুনা] এই সংহিতাক ভাৰতীয় ন্যায় সংহিতা, ২০২৩ বুলি কোৱা হ'ব।"]
+        }
+      ]
+    },
+    {
+      "id": "ch3",
+      "number": 3,
+      "title": "Chapter 3",
+      "titleEn": "General Explanations",
+      "entries": [
+        {
+          "id": "bns_s15",
+          "number": 15,
+          "title": "সাধাৰণ ব্যাখ্যা",
+          "titleEn": "General Explanations",
+          "keywords": ["general explanations"],
+          "text": ["[নমুনা] এই সংহিতাত ব্যৱহৃত পদসমূহৰ ব্যাখ্যা এই অধ্যায়ত দিয়া হৈছে।"]
+        }
+      ]
+    },
+    {
+      "id": "ch6",
+      "number": 6,
+      "title": "Chapter 6",
+      "titleEn": "Offences Affecting the Human Body",
+      "entries": [
+        {
+          "id": "bns_s101",
+          "number": 101,
+          "title": "নৰহত্যা",
+          "titleEn": "Culpable homicide",
+          "keywords": ["culpable homicide", "death"],
+          "text": ["[নমুনা] যিয়ে মৃত্যু ঘটাব পৰা কাৰ্য্যৰে মৃত্যু ঘটোৱাৰ উদ্দেশ্যে বা জ্ঞানেৰে কাৰ্য্য কৰি কাৰোবাৰ মৃত্যু ঘটায়, সি নৰহত্যাৰ দোষী।"]
+        },
+        {
+          "id": "bns_s103",
+          "number": 103,
+          "title": "নৰবধৰ শাস্তি",
+          "titleEn": "Punishment for murder",
+          "keywords": ["murder", "punishment", "death penalty", "life imprisonment"],
+          "text": [
+            "[নমুনা] যিয়ে নৰবধ কৰে, সি মৃত্যুদণ্ড বা যাৱজ্জীৱন কাৰাদণ্ডৰে দণ্ডিত হ'ব, আৰু জৰিমনাৰো যোগ্য হ'ব।"
+          ],
+          "explanation": "এইটো নমুনা তথ্য — প্ৰকৃত প্ৰমাণিত পাঠেৰে সলনি কৰিব লাগিব।"
+        },
+        {
+          "id": "bns_s115",
+          "number": 115,
+          "title": "স্বেচ্ছাকৃত আঘাত",
+          "titleEn": "Voluntarily causing hurt",
+          "keywords": ["hurt", "injury"],
+          "text": ["[নমুনা] যিয়ে স্বেচ্ছাকৃতভাৱে কাৰোবাক আঘাত কৰে, সি এই ধাৰাৰ অধীনত দণ্ডনীয়।"]
+        }
+      ]
+    },
+    {
+      "id": "ch18",
+      "number": 18,
+      "title": "Chapter 18",
+      "titleEn": "Offences Relating to Documents and Property Marks",
+      "entries": [
+        {
+          "id": "bns_s152",
+          "number": 152,
+          "title": "ভাৰতৰ সাৰ্বভৌমত্ব, ঐক্যতা আৰু অখণ্ডতাৰ বিৰুদ্ধে কাৰ্য্য",
+          "titleEn": "Acts endangering sovereignty, unity and integrity of India",
+          "keywords": ["sovereignty", "unity", "integrity"],
+          "text": ["[নমুনা] যিয়ে ভাৰতৰ সাৰ্বভৌমত্ব, ঐক্যতা আৰু অখণ্ডতাক বিপন্ন কৰে, সি এই ধাৰাৰ অধীনত দণ্ডনীয়।"]
+        }
+      ]
+    }
+  ]
+        }
+          
