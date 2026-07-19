@@ -1,0 +1,143 @@
+/* ============================================================
+   NyaySetu — reader.css
+   Reading-comfort typography: measured line length, font/theme
+   switching, and the quiet marks (clause numerals, explanation
+   callouts) that a legal reading surface needs.
+   ============================================================ */
+
+.reader-view {
+  min-height: 100vh; min-height: 100dvh;
+  display: flex; flex-direction: column;
+}
+
+.reader-view.bold-reading .reader-content { font-weight: 600; }
+
+.reader-view[data-font="sans"]  .reader-content,
+.reader-view[data-font="sans"]  .reader-article-title { font-family: "NotoSansBengaliUI", sans-serif; }
+
+.reader-view[data-font="serif"] .reader-content,
+.reader-view[data-font="serif"] .reader-article-title { font-family: "NotoSerifBengaliUI", serif; }
+
+/* Measured line length for comfortable long-form reading —
+   caps out well before the 620px body max-width on wide screens. */
+.reader-content {
+  max-width: 62ch;
+  word-spacing: 0.02em;
+  font-size: var(--reader-font-size, 1.0625rem);
+  line-height: var(--reader-line-height, 1.85);
+}
+.reader-content p { margin-bottom: 1.05em; }
+.reader-content .clause { margin-bottom: 0.9em; padding-left: 1.2em; text-indent: -1.2em; }
+
+.reader-content .clause-num {
+  display: inline-grid; place-items: center;
+  width: 1.5em; height: 1.5em; margin-right: 0.4em;
+  border-radius: 999px;
+  border: 1px solid var(--read-rule, var(--read-accent));
+  color: var(--read-accent);
+  font-size: 0.72em; font-weight: 700;
+  text-indent: 0;
+  vertical-align: -0.3em;
+}
+
+/* ---- Structured sections (amendments, case studies, long-form entries) ---- */
+.reader-sections .section-heading {
+  font-family: "NotoSerifBengaliUI", serif;
+  font-size: 1.08em;
+  font-weight: 700;
+  color: var(--read-accent);
+  margin: 1.6em 0 0.6em;
+  padding-bottom: 0.35em;
+  border-bottom: 1px solid var(--read-rule, var(--read-border));
+}
+.reader-sections > .section-heading:first-child { margin-top: 0.2em; }
+
+.reader-sections .section-para { margin-bottom: 0.9em; }
+
+.reader-sections .section-list,
+.reader-sections .section-ordered {
+  margin: 0 0 1em;
+  padding-left: 1.3em;
+}
+.reader-sections .section-list { list-style: none; }
+.reader-sections .section-list > li {
+  position: relative;
+  padding-left: 0.1em;
+  margin-bottom: 0.6em;
+}
+.reader-sections .section-list > li::before {
+  content: "";
+  position: absolute;
+  left: -1.1em; top: 0.55em;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--read-accent);
+}
+.reader-sections .section-ordered {
+  list-style: decimal;
+}
+.reader-sections .section-ordered > li {
+  margin-bottom: 0.7em;
+  padding-left: 0.3em;
+}
+.reader-sections .section-ordered > li::marker {
+  color: var(--read-accent);
+  font-weight: 700;
+}
+.reader-sections .section-sublist {
+  list-style: none;
+  margin: 0.5em 0 0;
+  padding-left: 1em;
+}
+.reader-sections .section-sublist > li {
+  position: relative;
+  padding-left: 0.1em;
+  margin-bottom: 0.4em;
+  font-size: 0.95em;
+  color: var(--read-text-muted);
+}
+.reader-sections .section-sublist > li::before {
+  content: "–";
+  position: absolute; left: -1em;
+  color: var(--read-accent);
+}
+
+.reader-sections .section-item {
+  margin-bottom: 1.1em;
+  padding: 12px 15px;
+  background: var(--read-bg-panel);
+  border-radius: 10px;
+  border-left: 2px solid var(--read-accent);
+}
+.reader-sections .section-item-title {
+  font-weight: 700;
+  margin-bottom: 0.5em;
+}
+.reader-sections .section-item .section-list {
+  margin-bottom: 0;
+  padding-left: 1.2em;
+}
+.reader-sections .section-item .section-list > li:last-child { margin-bottom: 0; }
+
+.reader-explanation {
+  margin-top: 24px;
+  padding: 15px 17px;
+  border-left: 3px solid var(--read-accent);
+  background: var(--read-bg-panel);
+  border-radius: 0 10px 10px 0;
+  font-size: 0.92rem;
+  color: var(--read-text-muted);
+  max-width: 62ch;
+}
+.reader-explanation .label { display: block; margin-bottom: 6px; color: var(--read-accent); }
+
+/* TTS active sentence highlight (speech.js toggles this class) */
+.tts-active { background: color-mix(in srgb, var(--read-accent) 26%, transparent); border-radius: 3px; }
+
+/* Keep-screen-on indicator dot on the toolbar icon */
+.icon-btn.screen-on-active::after {
+  content: "";
+  position: absolute; top: 8px; right: 9px;
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--color-success, #6FA37B);
+}

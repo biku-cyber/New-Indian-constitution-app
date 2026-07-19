@@ -1,0 +1,90 @@
+/* ============================================================
+   NyaySetu — theme.css
+   Design tokens. Two independent systems:
+     1. App shell theme:  [data-theme="dark"]  (default)
+     2. Reading theme:    [data-reader-theme="day|night|light"]
+        scoped to .reader-view only.
+
+   Palette story: "ন্যায়সেতু" = the bridge of justice. Charcoal
+   stone (the bridge structure) + brass (the lantern light that
+   guides a night crossing). No gradients, no glow-on-black —
+   the brass is a struck match, not a neon sign.
+   ============================================================ */
+
+[data-theme="dark"] {
+  /* -- stone (structure) -- */
+  --color-bg:            #14100F;
+  --color-bg-elevated:   #1C1714;
+  --color-surface:       #241D18;
+  --color-surface-hover: #2C231D;
+  --color-border:        #382C24;
+  --color-border-soft:   #2A211B;
+
+  /* -- parchment (text) -- */
+  --color-text:          #F1EAE0;
+  --color-text-muted:    #B5A896;
+  --color-text-faint:    #776957;
+
+  /* -- brass (the one accent, spent carefully) -- */
+  --color-accent:        #C99A48;
+  --color-accent-strong: #E4B968;
+  --color-accent-dim:    #8A6B37;
+  --color-accent-ink:    #14100F;
+
+  /* -- verdigris (secondary, used only for "active/current law" badges) -- */
+  --color-verdigris:     #6B8E7C;
+
+  --color-danger:        #C6644F;
+  --color-success:       #6FA37B;
+
+  --shadow-card: 0 1px 2px rgba(0,0,0,0.5), 0 10px 28px -6px rgba(0,0,0,0.45);
+  --shadow-elevated: 0 4px 12px rgba(0,0,0,0.35), 0 24px 48px -12px rgba(0,0,0,0.55);
+  --ripple-color: rgba(201, 154, 72, 0.22);
+
+  --ease-standard: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+/* ---------- Reading themes (Reader view only) ---------- */
+
+/* Warm Paper — Eye Comfort Day */
+[data-reader-theme="day"] {
+  --read-bg:        #F1E6CC;
+  --read-bg-panel:  #E9DCBC;
+  --read-text:      #2A2115;
+  --read-text-muted:#5C4F38;
+  --read-border:    #D6C398;
+  --read-accent:    #8F5F26;
+  --read-rule:      rgba(143,95,38,0.35);
+}
+
+/* Dark Olive/Slate — Eye Comfort Night */
+[data-reader-theme="night"] {
+  --read-bg:        #211F19;
+  --read-bg-panel:  #292620;
+  --read-text:      #E2DCCB;
+  --read-text-muted:#A39C8A;
+  --read-border:    #383327;
+  --read-accent:    #C6A052;
+  --read-rule:      rgba(198,160,82,0.3);
+}
+
+/* Light — neutral off-white */
+[data-reader-theme="light"] {
+  --read-bg:        #FAF8F3;
+  --read-bg-panel:  #F1EDE2;
+  --read-text:      #1E1B15;
+  --read-text-muted:#5C564A;
+  --read-border:    #E2DBC8;
+  --read-accent:    #7A5220;
+  --read-rule:      rgba(122,82,32,0.28);
+}
+
+.reader-view {
+  background: var(--read-bg);
+  color: var(--read-text);
+}
