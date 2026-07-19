@@ -1,0 +1,37 @@
+{
+  "groups": [
+    {
+      "id": "ch1",
+      "number": 1,
+      "title": "Chapter 1",
+      "titleEn": "Preliminary",
+      "entries": [
+        {
+          "id": "bnss_s1",
+          "number": 1,
+          "title": "চমু নাম, প্ৰসাৰ আৰু প্ৰাৰম্ভ",
+          "titleEn": "Short title, extent and commencement",
+          "keywords": ["short title", "commencement"],
+          "text": ["[নমুনা] এই সংহিতাক ভাৰতীয় নাগৰিক সুৰক্ষা সংহিতা, ২০২৩ বুলি কোৱা হ'ব।"]
+        }
+      ]
+    },
+    {
+      "id": "ch35",
+      "number": 35,
+      "title": "Chapter 35",
+      "titleEn": "Provisions as to Bail and Bonds",
+      "entries": [
+        {
+          "id": "bnss_s479",
+          "number": 479,
+          "title": "আগতীয়া জামিন",
+          "titleEn": "Anticipatory bail",
+          "keywords": ["anticipatory bail", "bail"],
+          "text": ["[নমুনা] গ্ৰেপ্তাৰৰ আশংকা থকা ব্যক্তিয়ে উচ্চ ন্যায়ালয় বা দায়ৰা ন্যায়ালয়ত আগতীয়া জামিনৰ বাবে আবেদন কৰিব পাৰে।"],
+          "explanation": "এইটো নমুনা তথ্য — প্ৰকৃত প্ৰমাণিত পাঠেৰে সলনি কৰিব লাগিব।"
+        }
+      ]
+    }
+  ]
+}
