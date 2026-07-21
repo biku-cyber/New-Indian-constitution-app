@@ -233,9 +233,10 @@
     function ctx_word(i, t) { return `${i + 1} / ${t}`; }
   }
 
-  function renderContent(entry) {
+  function renderContent(entry, breadcrumb) {
     const body = entry.sections ? renderSections(entry.sections) : renderFlatText(entry.text);
     const wrap = [
+      breadcrumb ? el("div", { class: "reader-breadcrumb text-label" }, [breadcrumb]) : null,
       el("h1", { class: "reader-article-title" }, [entry.title]),
       entry.titleEn ? el("div", { class: "reader-article-subtitle text-body" }, [entry.titleEn]) : null,
       el("div", { class: "reader-rule" }),
@@ -269,8 +270,18 @@
   // content without turning this into a general document renderer.
   function renderSections(sections) {
     const wrap = el("div", { class: "reader-content reader-sections" });
+    const headingSections = sections.filter((s) => s.heading);
+
+    if (headingSections.length >= 3) {
+      wrap.appendChild(renderTOC(headingSections));
+    }
+
+    let headingIndex = 0;
     sections.forEach((sec) => {
-      if (sec.heading) wrap.appendChild(el("h2", { class: "section-heading" }, [sec.heading]));
+      if (sec.heading) {
+        wrap.appendChild(el("h2", { class: "section-heading", id: `sec-${headingIndex}` }, [sec.heading]));
+        headingIndex++;
+      }
       (sec.paragraphs || []).forEach((p) => wrap.appendChild(el("p", { class: "section-para" }, [p])));
       if (sec.list) {
         wrap.appendChild(el("ul", { class: "section-list" }, sec.list.map((item) => el("li", {}, [item]))));
@@ -287,11 +298,32 @@
         sec.items.forEach((it) => {
           const block = el("div", { class: "section-item" }, [el("div", { class: "section-item-title" }, [it.title])]);
           if (it.list) block.appendChild(el("ul", { class: "section-list" }, it.list.map((l) => el("li", {}, [l]))));
+          if (it.sublist) block.appendChild(el("ul", { class: "section-sublist" }, it.sublist.map((l) => el("li", {}, [l]))));
+          if (it.note) block.appendChild(el("div", { class: "section-item-note" }, [it.note]));
           wrap.appendChild(block);
         });
       }
     });
     return wrap;
+  }
+
+  // Jump-navigation for long structured entries (the 100+ entry Schedules
+  // especially). Static anchor list — no scroll-spy — kept deliberately
+  // simple: it answers "where can I jump to", not "where am I right now".
+  function renderTOC(headingSections) {
+    const list = el("ul", { class: "toc-list" }, headingSections.map((sec, i) => {
+      const link = el("a", { href: `#sec-${i}`, class: "toc-link" }, [sec.heading]);
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const target = document.getElementById(`sec-${i}`);
+        if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+      return el("li", {}, [link]);
+    }));
+    return el("nav", { class: "reader-toc", "aria-label": "এই পৃষ্ঠাত" }, [
+      el("div", { class: "toc-label text-label" }, ["এই পৃষ্ঠাত"]),
+      list
+    ]);
   }
 
   function renderNav(hasPrev, hasNext, onPrev, onNext) {
