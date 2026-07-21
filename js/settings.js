@@ -1,13 +1,38 @@
 /* ============================================================
    NyaySetu — settings.js
    Renders the Settings view: Appearance, Reading, Speech,
-   Accessibility, Storage, About.
+   Translation, Accessibility, Storage, About.
+   Group icons reuse the uploaded asset set where a real match
+   exists (Translation → translate.svg, Storage → bookmarks.svg);
+   the rest use small hand-drawn glyphs in the same style.
    ============================================================ */
 
 (function () {
   "use strict";
 
   const { el, toast } = Utils;
+
+  // Small hand-drawn glyphs for groups with no matching uploaded asset.
+  const GROUP_ICONS = {
+    appearance: '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.7"/><path d="M12 2.5v2.4M12 19v2.5M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M2.5 12h2.4M19 12h2.5M4.9 19l1.7-1.7M17.4 6.6l1.7-1.7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>',
+    reading: '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 5.5c2.4-1 5.2-1.2 8 0v13.5c-2.8-1.2-5.6-1-8 0V5.5zM20 5.5c-2.4-1-5.2-1.2-8 0v13.5c2.8-1.2 5.6-1 8 0V5.5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>',
+    speech: '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/><path d="M16.5 8.5a5 5 0 010 7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>',
+    accessibility: '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9.5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="8.6" r="1.6" fill="currentColor"/><path d="M6.5 11c2-.8 3.7-1.1 5.5-1.1s3.5.3 5.5 1.1M12 10.4V17M9.3 17l1-3M14.7 17l-1-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    about: '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9.5" stroke="currentColor" stroke-width="1.6"/><path d="M12 11v5.5M12 7.6v.1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>'
+  };
+
+  function groupHeader(key, label) {
+    const asset = window.AppIcons && (
+      key === "translation" ? window.AppIcons.translate :
+      key === "storage" ? window.AppIcons.bookmark :
+      null
+    );
+    const iconHtml = asset || GROUP_ICONS[key] || "";
+    return el("div", { class: "settings-group-header" }, [
+      el("span", { class: "icon-wrap", html: iconHtml }),
+      el("span", { class: "group-title text-label" }, [label])
+    ]);
+  }
 
   function row(label, valueNode) {
     return el("div", { class: "settings-row" }, [
@@ -34,14 +59,12 @@
     return wrap;
   }
 
-  function groupTitle(text) { return el("div", { class: "group-title text-label" }, [text]); }
-
   function render(onChange) {
     const s = Storage.getSettings();
     const refresh = () => onChange();
 
     const appearance = el("div", { class: "settings-group" }, [
-      groupTitle("Appearance"),
+      groupHeader("appearance", "Appearance"),
       row("App Theme", el("span", { class: "row-value text-caption" }, ["Dark (default)"])),
       segmented(
         [{ label: "Day", value: "day" }, { label: "Night", value: "night" }, { label: "Light", value: "light" }],
@@ -51,10 +74,8 @@
     ]);
 
     const reading = el("div", { class: "settings-group" }, [
-      groupTitle("Reading"),
-      el("div", {}, [
-        row("Font Family", el("span", { class: "row-value text-caption" }, [s.fontFamily === "serif" ? "Serif" : "Sans"])),
-      ]),
+      groupHeader("reading", "Reading"),
+      row("Font Family", el("span", { class: "row-value text-caption" }, [s.fontFamily === "serif" ? "Serif" : "Sans"])),
       segmented(
         [{ label: "সান্স", value: "sans" }, { label: "চেৰিফ", value: "serif" }],
         s.fontFamily,
@@ -67,31 +88,31 @@
     ]);
 
     const speech = el("div", { class: "settings-group" }, [
-      groupTitle("Speech / Live Read"),
+      groupHeader("speech", "Speech / Live Read"),
       row("Speed", stepperInline(s.speechRate, 0.5, 2, (n) => { Storage.saveSettings({ speechRate: +n.toFixed(1) }); refresh(); }, 0.1)),
       row("Pitch", stepperInline(s.speechPitch, 0.5, 2, (n) => { Storage.saveSettings({ speechPitch: +n.toFixed(1) }); refresh(); }, 0.1)),
       row("Language", el("span", { class: "row-value text-caption" }, ["অসমীয়া"]))
     ]);
 
     const translation = el("div", { class: "settings-group" }, [
-      groupTitle("Translation"),
+      groupHeader("translation", "Translation"),
       row("Default Language", el("span", { class: "row-value text-caption" }, [translationLabel(s.translationLang)]))
     ]);
 
     const accessibility = el("div", { class: "settings-group" }, [
-      groupTitle("Accessibility"),
+      groupHeader("accessibility", "Accessibility"),
       row("High Contrast", switchEl(s.a11yHighContrast, () => { Storage.saveSettings({ a11yHighContrast: !s.a11yHighContrast }); Theme.applyAppTheme(); refresh(); })),
       row("Larger Text", switchEl(s.a11yLargeText, () => { Storage.saveSettings({ a11yLargeText: !s.a11yLargeText }); Theme.applyAppTheme(); refresh(); }))
     ]);
 
     const storageGroup = el("div", { class: "settings-group" }, [
-      groupTitle("Storage"),
+      groupHeader("storage", "Storage"),
       row("Bookmarks Saved", el("span", { class: "row-value text-caption" }, [String(Storage.getBookmarks().length)])),
       clearRow()
     ]);
 
     const about = el("div", { class: "settings-group" }, [
-      groupTitle("About"),
+      groupHeader("about", "About"),
       row("Version", el("span", { class: "row-value text-caption" }, ["1.0.0 (offline)"])),
       linkRow("Privacy"),
       linkRow("Disclaimer")
@@ -103,8 +124,8 @@
   function stepperInline(value, min, max, onChange, step) {
     step = step || 1;
     const label = el("span", { class: "row-value text-caption", style: "min-width:2.5ch;text-align:center;" }, [String(value)]);
-    const minus = el("button", { class: "icon-btn", style: "width:30px;height:30px;border:1px solid var(--color-border);" }, ["−"]);
-    const plus = el("button", { class: "icon-btn", style: "width:30px;height:30px;border:1px solid var(--color-border);" }, ["+"]);
+    const minus = el("button", { class: "icon-btn", "aria-label": "Decrease" }, ["−"]);
+    const plus = el("button", { class: "icon-btn", "aria-label": "Increase" }, ["+"]);
     minus.addEventListener("click", () => { const n = Math.max(min, +(value - step).toFixed(2)); onChange(n); });
     plus.addEventListener("click", () => { const n = Math.min(max, +(value + step).toFixed(2)); onChange(n); });
     return el("div", { class: "flex items-center gap-8" }, [minus, label, plus]);
