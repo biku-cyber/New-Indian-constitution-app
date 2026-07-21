@@ -28,29 +28,16 @@
 
 /* ---- Home hero ---- */
 .home-hero {
-  position: relative;
-  padding: 30px 20px 14px;
+  padding: 26px 20px 14px;
   max-width: 640px;
   margin: 0 auto;
   width: 100%;
-  overflow: hidden;
-}
-
-.home-hero .bridge-motif {
-  position: absolute;
-  left: 0; right: 0; bottom: 2px;
-  height: 52px;
-  color: var(--color-accent);
-  opacity: 0.24;
-  pointer-events: none;
 }
 
 .home-hero .hero-row {
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  z-index: 1;
 }
 
 .home-hero h1 {
