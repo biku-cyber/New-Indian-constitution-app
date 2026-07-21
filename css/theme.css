@@ -1,45 +1,55 @@
 /* ============================================================
-   NyaySetu — theme.css
+   NyaySetu — theme.css  (v2 — redesign pass)
    Design tokens. Two independent systems:
      1. App shell theme:  [data-theme="dark"]  (default)
      2. Reading theme:    [data-reader-theme="day|night|light"]
         scoped to .reader-view only.
 
-   Palette story: "ন্যায়সেতু" = the bridge of justice. Charcoal
-   stone (the bridge structure) + brass (the lantern light that
-   guides a night crossing). No gradients, no glow-on-black —
-   the brass is a struck match, not a neon sign.
+   Palette story, evolved: still "ন্যায়সেতু" — the bridge of
+   justice — but the base moved from warm charcoal to a deep
+   indigo-black (ink, not wood smoke), the accent from flat brass
+   to burnished copper (a struck seal, not a lantern), and a new
+   second accent — seal-red — appears only on wayfinding chrome
+   (breadcrumbs, the active mark in a page's table of contents,
+   cross-reference tags) — the red of an official stamp, never
+   decorative, always meaning "you are here" or "this points
+   elsewhere."
    ============================================================ */
 
 [data-theme="dark"] {
-  /* -- stone (structure) -- */
-  --color-bg:            #14100F;
-  --color-bg-elevated:   #1C1714;
-  --color-surface:       #241D18;
-  --color-surface-hover: #2C231D;
-  --color-border:        #382C24;
-  --color-border-soft:   #2A211B;
+  /* -- ink (structure) -- */
+  --color-bg:            #100D16;
+  --color-bg-elevated:   #17131F;
+  --color-surface:       #1E1929;
+  --color-surface-hover: #262032;
+  --color-border:        #332C42;
+  --color-border-soft:   #241F30;
 
-  /* -- parchment (text) -- */
-  --color-text:          #F1EAE0;
-  --color-text-muted:    #B5A896;
-  --color-text-faint:    #776957;
+  /* -- parchment (text), cooled slightly to sit on indigo -- */
+  --color-text:          #EEEAF5;
+  --color-text-muted:    #A79FBC;
+  --color-text-faint:    #6E6683;
 
-  /* -- brass (the one accent, spent carefully) -- */
-  --color-accent:        #C99A48;
-  --color-accent-strong: #E4B968;
-  --color-accent-dim:    #8A6B37;
-  --color-accent-ink:    #14100F;
+  /* -- copper (primary accent) -- */
+  --color-accent:        #BD8442;
+  --color-accent-strong: #D89F5A;
+  --color-accent-dim:    #7D5A2C;
+  --color-accent-ink:    #100D16;
 
-  /* -- verdigris (secondary, used only for "active/current law" badges) -- */
-  --color-verdigris:     #6B8E7C;
+  /* -- seal-red (wayfinding accent only — breadcrumbs, TOC "here"
+     marker, cross-references. Never used for decoration.) -- */
+  --color-seal:          #A23B2E;
+  --color-seal-dim:      rgba(162, 59, 46, 0.16);
+
+  /* -- verdigris (secondary, "active/current law" badges) -- */
+  --color-verdigris:     #5E8577;
 
   --color-danger:        #C6644F;
   --color-success:       #6FA37B;
 
-  --shadow-card: 0 1px 2px rgba(0,0,0,0.5), 0 10px 28px -6px rgba(0,0,0,0.45);
-  --shadow-elevated: 0 4px 12px rgba(0,0,0,0.35), 0 24px 48px -12px rgba(0,0,0,0.55);
-  --ripple-color: rgba(201, 154, 72, 0.22);
+  --shadow-card: 0 1px 2px rgba(4,2,10,0.55), 0 10px 28px -6px rgba(4,2,10,0.5);
+  --shadow-elevated: 0 4px 12px rgba(4,2,10,0.4), 0 24px 48px -12px rgba(4,2,10,0.6);
+  --ripple-color: rgba(189, 132, 66, 0.22);
 
   --ease-standard: cubic-bezier(0.22, 0.61, 0.36, 1);
 }
@@ -53,38 +63,59 @@ body {
 
 /* Warm Paper — Eye Comfort Day */
 [data-reader-theme="day"] {
-  --read-bg:        #F1E6CC;
-  --read-bg-panel:  #E9DCBC;
+  --read-bg:        #EFE2C4;
+  --read-bg-panel:  #E7D9B7;
   --read-text:      #2A2115;
   --read-text-muted:#5C4F38;
-  --read-border:    #D6C398;
-  --read-accent:    #8F5F26;
-  --read-rule:      rgba(143,95,38,0.35);
+  --read-border:    #D2BE92;
+  --read-accent:    #8F5226;
+  --read-seal:      #9A3F2E;
+  --read-rule:      rgba(143,82,38,0.35);
+  --read-grain-opacity: 0.05;
 }
 
-/* Dark Olive/Slate — Eye Comfort Night */
+/* Deep Olive-Teal — Eye Comfort Night (paired to the indigo home base) */
 [data-reader-theme="night"] {
-  --read-bg:        #211F19;
-  --read-bg-panel:  #292620;
-  --read-text:      #E2DCCB;
-  --read-text-muted:#A39C8A;
-  --read-border:    #383327;
+  --read-bg:        #1B211E;
+  --read-bg-panel:  #232A26;
+  --read-text:      #E1DDC9;
+  --read-text-muted:#9FA298;
+  --read-border:    #313A34;
   --read-accent:    #C6A052;
+  --read-seal:      #C0584A;
   --read-rule:      rgba(198,160,82,0.3);
+  --read-grain-opacity: 0.035;
 }
 
-/* Light — neutral off-white */
+/* Light — neutral warm ivory */
 [data-reader-theme="light"] {
-  --read-bg:        #FAF8F3;
-  --read-bg-panel:  #F1EDE2;
+  --read-bg:        #FAF6EE;
+  --read-bg-panel:  #F1EADB;
   --read-text:      #1E1B15;
   --read-text-muted:#5C564A;
-  --read-border:    #E2DBC8;
-  --read-accent:    #7A5220;
-  --read-rule:      rgba(122,82,32,0.28);
+  --read-border:    #E2D9C4;
+  --read-accent:    #7A4A20;
+  --read-seal:      #8C3B2C;
+  --read-rule:      rgba(122,74,32,0.28);
+  --read-grain-opacity: 0.045;
 }
 
 .reader-view {
   background: var(--read-bg);
   color: var(--read-text);
+  position: relative;
 }
+
+/* Subtle paper grain — a fixed SVG noise texture, opacity per-theme via
+   --read-grain-opacity. Pure CSS, no image asset. */
+.reader-view::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: var(--read-grain-opacity, 0.04);
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  mix-blend-mode: multiply;
+}
+.reader-view > * { position: relative; z-index: 1; }
