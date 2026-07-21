@@ -41,7 +41,42 @@
 }
 
 /* ---- Structured sections (amendments, case studies, long-form entries) ---- */
+/* ---- Structured sections (amendments, case studies, long-form entries) ---- */
+.reader-toc {
+  margin-bottom: 1.6em;
+  padding: 14px 16px;
+  border: 1px solid var(--read-border);
+  border-radius: 10px;
+  background: var(--read-bg-panel);
+}
+.reader-toc .toc-label {
+  color: var(--read-seal, var(--read-accent));
+  margin-bottom: 8px;
+}
+.reader-toc .toc-list {
+  columns: 1;
+  list-style: none;
+  margin: 0; padding: 0;
+}
+@media (min-width: 480px) {
+  .reader-toc .toc-list { columns: 2; column-gap: 20px; }
+}
+.reader-toc .toc-list li { break-inside: avoid; margin-bottom: 6px; }
+.reader-toc .toc-link {
+  display: block;
+  font-size: 0.88em;
+  color: var(--read-text);
+  padding: 3px 0;
+  border-bottom: 1px dotted transparent;
+  transition: border-color 140ms ease, color 140ms ease;
+}
+.reader-toc .toc-link:hover {
+  color: var(--read-accent);
+  border-bottom-color: var(--read-accent);
+}
+
 .reader-sections .section-heading {
+  scroll-margin-top: 72px;
   font-family: "NotoSerifBengaliUI", serif;
   font-size: 1.08em;
   font-weight: 700;
@@ -118,6 +153,16 @@
   padding-left: 1.2em;
 }
 .reader-sections .section-item .section-list > li:last-child { margin-bottom: 0; }
+
+.reader-sections .section-item-note {
+  margin-top: 0.7em;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--read-accent) 10%, transparent);
+  color: var(--read-text-muted);
+  font-size: 0.88em;
+  font-style: italic;
+}
 
 .reader-explanation {
   margin-top: 24px;
